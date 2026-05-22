@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>延盛 Yansheng — Heritage Couture</title>
+<meta name="description" content="Yansheng (延盛) — contemporary high luxury reimagined from a thousand years of Chinese sartorial heritage. Hand-tailored hanfu, qipao, and ceremonial attire." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #0e0a08;
+    --ink-soft:   #1a130f;
+    --paper:      #f5ede1;
+    --paper-warm: #ebdfca;
+    --crimson:    #7a1421;
+    --crimson-dp: #4a0c15;
+    --gold:       #c8a45c;
+    --gold-soft:  #e6c98a;
+    --jade:       #2f5d4f;
+    --line:       rgba(200, 164, 92, 0.28);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Subtle paper / ink texture ---------- */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(200,164,92,0.06), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(122,20,33,0.10), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .han { font-family: 'Noto Serif SC', serif; }
+  .vertical {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.25em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 48px;
+    z-index: 50;
+    background: linear-gradient(to bottom, rgba(14,10,8,0.85), rgba(14,10,8,0));
+    backdrop-filter: blur(6px);
+  }
+  nav .brand {
+    display: flex; align-items: baseline; gap: 14px;
+    color: var(--gold-soft);
+  }
+  nav .brand .han { font-size: 22px; font-weight: 500; letter-spacing: 0.15em; }
+  nav .brand .latin {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.7;
+  }
+  nav ul { list-style: none; display: flex; gap: 36px; }
+  nav ul a {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--paper);
+    opacity: 0.8;
+    transition: color .3s, opacity .3s;
+  }
+  nav ul a:hover { color: var(--gold-soft); opacity: 1; }
+  @media (max-width: 720px) {
+    nav { padding: 16px 22px; }
+    nav ul { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 120px 64px 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    /* layered silk-like gradient backdrop */
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 40%, rgba(122,20,33,0.55), transparent 60%),
+      radial-gradient(ellipse at 30% 80%, rgba(74,12,21,0.6), transparent 55%),
+      linear-gradient(135deg, #1a0d0a 0%, #0e0a08 60%, #14070a 100%);
+    z-index: -1;
+  }
+  .hero::after {
+    /* faint cloud-pattern (云纹) */
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 10px 10px, rgba(200,164,92,0.08) 1px, transparent 1.5px);
+    background-size: 28px 28px;
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  .hero .seal {
+    justify-self: end;
+    align-self: start;
+    margin-top: 40px;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: 0.4em;
+  }
+  .hero .seal .stamp {
+    display: inline-block;
+    border: 1.5px solid var(--crimson);
+    color: #f7d4c0;
+    background: var(--crimson-dp);
+    padding: 10px 14px;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+  .hero .seal .v-text {
+    height: 140px;
+    font-family: 'Noto Serif SC', serif;
+    color: var(--paper);
+    opacity: 0.65;
+    font-size: 15px;
+  }
+
+  .hero .center {
+    text-align: center;
+    max-width: 640px;
+  }
+  .hero .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.6em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    font-size: clamp(64px, 11vw, 148px);
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--paper);
+    margin-bottom: 24px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  }
+  .hero h1 .accent { color: var(--gold-soft); }
+  .hero .tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--paper);
+    opacity: 0.85;
+    margin-bottom: 18px;
+  }
+  .hero .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+  }
+
+  .hero .cta-row {
+    margin-top: 44px;
+    display: flex; justify-content: center; gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 1px solid var(--gold);
+    color: var(--gold-soft);
+    background: transparent;
+    cursor: pointer;
+    transition: all .35s ease;
+  }
+  .btn:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .btn.solid {
+    background: var(--crimson);
+    border-color: var(--crimson);
+    color: var(--paper);
+  }
+  .btn.solid:hover {
+    background: var(--crimson-dp);
+    border-color: var(--gold);
+    color: var(--gold-soft);
+  }
+
+  .hero .scroll-cue {
+    position: absolute;
+    bottom: 36px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .hero .scroll-cue::after {
+    content: "";
+    display: block;
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 12px auto 0;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero .seal { display: none; }
+  }
+
+  /* ---------- Sections ---------- */
+  section { position: relative; padding: 140px 64px; }
+  @media (max-width: 720px) { section { padding: 90px 24px; } }
+
+  .section-head { text-align: center; max-width: 760px; margin: 0 auto 80px; }
+  .section-head .kicker {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; letter-spacing: 0.55em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .section-head h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    font-size: clamp(34px, 5vw, 58px);
+    letter-spacing: 0.04em;
+    color: var(--paper);
+    line-height: 1.15;
+  }
+  .section-head h2 .gold { color: var(--gold-soft); }
+  .section-head p {
+    margin-top: 22px;
+    color: rgba(245,237,225,0.7);
+    font-size: 19px;
+    font-style: italic;
+  }
+
+  .ornament {
+    width: 80px; height: 1px;
+    background: var(--gold);
+    margin: 0 auto 28px;
+    position: relative;
+  }
+  .ornament::before, .ornament::after {
+    content: ""; position: absolute; top: -3px;
+    width: 7px; height: 7px; background: var(--gold);
+    transform: rotate(45deg);
+  }
+  .ornament::before { left: -4px; }
+  .ornament::after  { right: -4px; }
+
+  /* ---------- Heritage / story ---------- */
+  .heritage {
+    background: linear-gradient(180deg, #0e0a08 0%, #14100c 100%);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .heritage .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .heritage .visual {
+    aspect-ratio: 3/4;
+    background:
+      linear-gradient(135deg, rgba(74,12,21,0.4), rgba(14,10,8,0.4)),
+      repeating-linear-gradient(45deg, #2a1010 0 6px, #1a0a0a 6px 12px);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .heritage .visual::after {
+    content: "延 · 盛";
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(80px, 14vw, 180px);
+    color: rgba(200,164,92,0.18);
+    letter-spacing: 0.1em;
+  }
+  .heritage .visual::before {
+    /* gold corner ornament */
+    content: "";
+    position: absolute; top: 18px; left: 18px;
+    width: 60px; height: 60px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+  }
+  .heritage .body p {
+    margin-bottom: 22px;
+    color: rgba(245,237,225,0.78);
+    font-size: 19px;
+  }
+  .heritage .body .lead {
+    font-style: italic;
+    font-size: 24px;
+    color: var(--paper);
+  }
+  .heritage .body .han-quote {
+    font-family: 'Noto Serif SC', serif;
+    color: var(--gold-soft);
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    margin: 8px 0 28px;
+  }
+  @media (max-width: 900px) {
+    .heritage .grid { grid-template-columns: 1fr; gap: 50px; }
+    .heritage .visual { max-width: 420px; margin: 0 auto; }
+  }
+
+  /* ---------- Collections ---------- */
+  .collections .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .card {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: transform .5s ease, border-color .5s;
+  }
+  .card:hover { transform: translateY(-6px); border-color: var(--gold); }
+  .card .art {
+    position: absolute; inset: 0;
+    transition: transform 1.2s ease;
+  }
+  .card:hover .art { transform: scale(1.06); }
+  .card .label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 28px 26px 24px;
+    background: linear-gradient(to top, rgba(14,10,8,0.95) 30%, transparent);
+    z-index: 2;
+  }
+  .card .label .han {
+    font-size: 26px;
+    color: var(--gold-soft);
+    letter-spacing: 0.18em;
+    margin-bottom: 4px;
+  }
+  .card .label .en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--paper);
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+  .card .label .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+  }
+
+  /* Stylised "fabric" art per card */
+  .art-1 {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(200,164,92,0.35), transparent 60%),
+      linear-gradient(135deg, #5a0f1a 0%, #2a0810 100%);
+  }
+  .art-1::after {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(230,201,138,0.18) 1px, transparent 2px);
+    background-size: 22px 22px;
+  }
+  .art-2 {
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(230,201,138,0.25), transparent 60%),
+      linear-gradient(160deg, #14100c 0%, #2a1f15 60%, #0e0a08 100%);
+  }
+  .art-2::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(45deg, transparent 48%, rgba(200,164,92,0.18) 49% 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(200,164,92,0.10) 49% 51%, transparent 52%);
+    background-size: 40px 40px;
+  }
+  .art-3 {
+    background:
+      radial-gradient(circle at 50% 60%, rgba(47,93,79,0.45), transparent 65%),
+      linear-gradient(180deg, #0c1a16 0%, #0e0a08 100%);
+  }
+  .art-3::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(60deg, rgba(200,164,92,0.10) 0 1px, transparent 1px 14px),
+      repeating-linear-gradient(-60deg, rgba(200,164,92,0.08) 0 1px, transparent 1px 14px);
+  }
+
+  @media (max-width: 900px) {
+    .collections .grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Craft pillars ---------- */
+  .craft { background: linear-gradient(180deg, #14100c 0%, #0e0a08 100%); }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .pillar {
+    text-align: center;
+    padding: 36px 22px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.015);
+    transition: background .4s, border-color .4s, transform .4s;
+  }
+  .pillar:hover { background: rgba(200,164,92,0.04); border-color: var(--gold); transform: translateY(-4px); }
+  .pillar .num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 38px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+  }
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--paper);
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+  }
+  .pillar p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(245,237,225,0.65);
+  }
+  @media (max-width: 900px) { .pillars { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .pillars { grid-template-columns: 1fr; } }
+
+  /* ---------- Atelier / appointment ---------- */
+  .atelier {
+    background:
+      radial-gradient(ellipse at center, rgba(122,20,33,0.35) 0%, transparent 65%),
+      #0e0a08;
+    text-align: center;
+  }
+  .atelier .inner { max-width: 720px; margin: 0 auto; }
+  .atelier h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 400;
+    font-size: clamp(36px, 5.5vw, 62px);
+    color: var(--paper);
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+  .atelier .line {
+    font-style: italic; font-size: 22px;
+    color: rgba(245,237,225,0.8);
+    margin-bottom: 40px;
+  }
+  .atelier form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .atelier input, .atelier select {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--paper);
+    padding: 16px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    outline: none;
+    transition: border-color .3s;
+  }
+  .atelier input::placeholder { color: rgba(245,237,225,0.45); letter-spacing: 0.15em; text-transform: uppercase; font-size: 11px; }
+  .atelier input:focus, .atelier select:focus { border-color: var(--gold); }
+  .atelier .full { grid-column: 1 / -1; }
+  .atelier button { margin-top: 12px; width: 100%; padding: 18px; }
+  @media (max-width: 600px) { .atelier form { grid-template-columns: 1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #060403;
+    border-top: 1px solid var(--line);
+    padding: 60px 48px 30px;
+    color: rgba(245,237,225,0.55);
+  }
+  footer .row {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  footer .brand-block .han { font-size: 28px; color: var(--gold-soft); letter-spacing: 0.15em; }
+  footer .brand-block .latin {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    margin-top: 6px;
+    color: rgba(245,237,225,0.7);
+  }
+  footer .brand-block p {
+    margin-top: 18px;
+    font-size: 14px;
+    max-width: 320px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+  }
+  footer h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 10px; font-family: 'Inter', sans-serif; font-size: 13px; }
+  footer li a:hover { color: var(--gold-soft); }
+  footer .legal {
+    max-width: 1200px; margin: 50px auto 0;
+    padding-top: 26px;
+    border-top: 1px solid rgba(200,164,92,0.12);
+    display: flex; justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    flex-wrap: wrap; gap: 10px;
+  }
+  @media (max-width: 800px) {
+    footer .row { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    footer .row { grid-template-columns: 1fr; }
+    footer .legal { flex-direction: column; }
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="brand">
+    <span class="han">延 盛</span>
+    <span class="latin">Yansheng</span>
+  </a>
+  <ul>
+    <li><a href="#heritage">Heritage</a></li>
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#craft">Craft</a></li>
+    <li><a href="#atelier">Atelier</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="seal">
+    <div class="stamp">延 盛</div>
+    <div class="vertical han v-text">承 · 千 年 · 衣 道</div>
+  </div>
+
+  <div class="center">
+    <div class="eyebrow">Maison Yansheng · Est. MMXXVI</div>
+    <h1 class="han">延<span class="accent">·</span>盛</h1>
+    <p class="tag">Where a thousand dynasties drape the modern silhouette.</p>
+    <p class="sub">Heritage Couture · Hand-Tailored in Suzhou</p>
+
+    <div class="cta-row">
+      <a class="btn solid" href="#collections">Explore the Collection</a>
+      <a class="btn" href="#atelier">Request a Private Atelier</a>
+    </div>
+  </div>
+
+  <div></div>
+
+  <div class="scroll-cue">Scroll · 卷</div>
+</header>
+
+<!-- ============== HERITAGE ============== -->
+<section class="heritage" id="heritage">
+  <div class="grid">
+    <div class="visual reveal" aria-hidden="true"></div>
+    <div class="body reveal">
+      <div class="kicker" style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.55em;color:var(--gold);text-transform:uppercase;margin-bottom:18px;">Our Heritage</div>
+      <h2 style="font-family:'Noto Serif SC',serif;font-weight:400;font-size:clamp(32px,4.5vw,52px);letter-spacing:.04em;line-height:1.15;color:var(--paper);margin-bottom:26px;">
+        A lineage written <span style="color:var(--gold-soft);">in silk and ink.</span>
+      </h2>
+      <p class="han-quote">「 衣 冠 之 美 ， 谓 之 华 。 」</p>
+      <p class="lead">Yansheng is a contemporary maison rooted in the imperial wardrobes of the Tang, Song, and Ming.</p>
+      <p>
+        Every piece begins on the loom in Suzhou, where seventh-generation
+        weavers thread mulberry silk one warp at a time. We refuse machine
+        embroidery, refuse synthetic dye, refuse haste. What we offer instead
+        is a garment your grandchildren will wear.
+      </p>
+      <p>
+        From the cloud-shouldered hanfu of the Tang court to the architectural
+        qipao of 1930s Shanghai, our atelier reinterprets these forms for a
+        global wardrobe — without diluting a single stitch of their origin.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== COLLECTIONS ============== -->
+<section class="collections" id="collections">
+  <div class="section-head reveal">
+    <div class="ornament"></div>
+    <div class="kicker">The Collections · 系列</div>
+    <h2>Four silhouettes, <span class="gold">one thousand years.</span></h2>
+    <p>Three signature lines, each tracing a dynastic line of dress into the present moment.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card reveal">
+      <div class="art art-1"></div>
+      <div class="label">
+        <div class="han">长 安</div>
+        <div class="en">Chang'an</div>
+        <div class="meta">Tang Hanfu · Ceremonial</div>
+      </div>
+    </article>
+    <article class="card reveal">
+      <div class="art art-2"></div>
+      <div class="label">
+        <div class="han">墨 林</div>
+        <div class="en">Molin</div>
+        <div class="meta">Song Literati · Daywear</div>
+      </div>
+    </article>
+    <article class="card reveal">
+      <div class="art art-3"></div>
+      <div class="label">
+        <div class="han">夜 沪</div>
+        <div class="en">Yehu</div>
+        <div class="meta">Shanghai Qipao · Evening</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== CRAFT ============== -->
+<section class="craft" id="craft">
+  <div class="section-head reveal">
+    <div class="ornament"></div>
+    <div class="kicker">The House Code · 匠 心</div>
+    <h2>Four disciplines, <span class="gold">no shortcuts.</span></h2>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar reveal">
+      <div class="num han">一</div>
+      <h3>Mulberry Silk</h3>
+      <p>Grade-6A silk from the Taihu basin, handloomed in widths unchanged since 1782.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="num han">二</div>
+      <h3>Suzhou Embroidery</h3>
+      <p>Su Xiu masters using needles thinner than a hair — every motif placed, never printed.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="num han">三</div>
+      <h3>Plant Dyes</h3>
+      <p>Indigo, gardenia, sappanwood. Colours that deepen with time, never fade against it.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="num han">四</div>
+      <h3>Made-to-Measure</h3>
+      <p>120 hours of hand-finishing per garment. Numbered, signed, registered to the wearer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ATELIER ============== -->
+<section class="atelier" id="atelier">
+  <div class="inner reveal">
+    <div class="ornament"></div>
+    <h2 class="han">入 · 阁</h2>
+    <p class="line">Enter the atelier. Private consultations in Shanghai, Paris, and by appointment.</p>
+
+    <form onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you · 多 谢';">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <select aria-label="Atelier city">
+        <option>Atelier · Shanghai</option>
+        <option>Atelier · Paris</option>
+        <option>Virtual Consultation</option>
+      </select>
+      <select aria-label="Interest">
+        <option>Bespoke Hanfu</option>
+        <option>Bespoke Qipao</option>
+        <option>Bridal · 嫁 衣</option>
+        <option>Ceremonial</option>
+      </select>
+      <input class="full" type="text" placeholder="Occasion or notes (optional)" />
+      <button type="submit" class="btn solid full">Request Appointment</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="row">
+    <div class="brand-block">
+      <div class="han">延 盛</div>
+      <div class="latin">Maison Yansheng</div>
+      <p>Heritage couture inheriting one thousand years of Chinese sartorial tradition. Hand-tailored in Suzhou for the world's most considered wardrobes.</p>
+    </div>
+    <div>
+      <h4>House</h4>
+      <ul>
+        <li><a href="#heritage">Heritage</a></li>
+        <li><a href="#craft">Craftsmanship</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#atelier">Private Atelier</a></li>
+        <li><a href="#">Bridal</a></li>
+        <li><a href="#">Custom Commission</a></li>
+        <li><a href="#">Care &amp; Restoration</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Ateliers</h4>
+      <ul>
+        <li>Shanghai · 上 海</li>
+        <li>Suzhou · 苏 州</li>
+        <li>Paris · 巴 黎</li>
+        <li>By Appointment</li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© MMXXVI Maison Yansheng · All rights reserved</span>
+    <span><a href="./privacy_policy.md">Privacy</a> &nbsp;·&nbsp; <a href="./terms_of_service.md">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+  // gentle scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
